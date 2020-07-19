@@ -1,0 +1,101 @@
+Request
+POST /v4/time-filter HTTP/1.1
+Host: api.traveltimeapp.com
+Content-Type: application/json
+Accept: application/json
+X-Application-Id: 0df3679f
+X-Api-Key: 4ee3f9d02e83b3618273a278a9de5660
+
+{
+  "locations": [
+    {
+      "id": "London center",
+      "coords": {
+        "lat": 51.508930,
+        "lng": -0.131387
+      }
+    },
+    {
+      "id": "Hyde Park",
+      "coords": {
+        "lat": 51.508824,
+        "lng": -0.167093
+      }
+    },
+    {
+      "id": "ZSL London Zoo",
+      "coords": {
+        "lat": 51.536067,
+        "lng": -0.153596
+      }
+    }
+  ],
+  "departure_searches": [
+    {
+      "id": "forward search example",
+      "departure_location_id": "London center",
+      "arrival_location_ids": [
+        "Hyde Park",
+        "ZSL London Zoo"
+      ],
+      "transportation": {
+        "type": "bus"
+      },
+      "departure_time": "2018-07-09T08:00:00Z",
+      "travel_time": 1800,
+      "properties": [
+        "travel_time"
+      ],
+      "range": {
+        "enabled": true,
+        "max_results": 3,
+        "width": 600
+      }
+    }
+  ],
+  "arrival_searches": [
+  ]
+}
+
+{
+   "results":[
+      {
+         "search_id":"backward search example",
+         "locations":[
+            {
+               "id":"Hyde Park",
+               "properties":[
+                  {
+                     "travel_time":1723
+                  }
+               ]
+            }
+         ],
+         "unreachable":[
+            "ZSL London Zoo"
+         ]
+      },
+      {
+         "search_id":"forward search example",
+         "locations":[
+            {
+               "id":"Hyde Park",
+               "properties":[
+                  {
+                     "travel_time":1705
+                  },
+                  {
+                     "travel_time":1805
+                  },
+                  {
+                     "travel_time":1918
+                  }
+               ]
+            }
+         ],
+         "unreachable":[
+            "ZSL London Zoo"
+         ]
+      }
+   ]
+}

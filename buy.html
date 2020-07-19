@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>TechShare</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-storage.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+  <!-- <script src = 'script.js' defer> </script> -->
+	<script src="buy.js" defer> </script>
+</head>
+
+<body>
+ <div id="buy_navbar">
+    <a href=index.html>Home</a>
+    <a href=buy.html>Buy</a>
+    <a href=sell.html>Sell</a>
+    <a href=profile.html>Profile</a>
+    <a href=geocoder.html>geocoder</a>
+
+  </div>
+  
+		
+    <form>
+      <label for="search">Search:</label><br>
+      <INPUT TYPE="text" NAME="searchBox" VALUE=""><br>
+      <label for="searchDistance">Distance:</label><br>
+      <INPUT TYPE="text" NAME="searchDistance" VALUE=""><br>
+      <INPUT TYPE="button" NAME="startSearch" id="searchButton" Value="Start searching!" onclick="runSearch2(form)">
+    </form>
+
+    <p id="d"></p>
+
+	<script>
+    
+//     var authHeaders = {
+//       "X-Application-Id": "4f92ecf3",
+//       "X-Api-Key": "3bc3ac3273cdaf55da7430ee71006721",
+//       "Accept-Language": "en-US"
+//     }
+    
+//     function sendGeocodingRequest(location) {
+//       var request = {
+//         query: location
+//       };      
+//       // Sending the request.
+//       $.ajax({
+//         // The URL for the geocoding endpoint.
+//         url: "https://api.traveltimeapp.com/v4/geocoding/search",
+//         // The API endpoint accepts GET requests.
+//         type: "get",
+//         // The authentication headers.
+//         headers: authHeaders,
+//         data: request,
+//         contentType: "application/json; charset=UTF-8",
+//         // We handle the response here
+//         success: dontDrawMarker
+//       });
+// };
+
+// var currentCoords = "";
+// function dontDrawMarker(response)
+// {
+// 	currentCoords = response.features[0].geometry.coordinates;
+// 	console.log("we're here");
+// 	// var coordinates = response.features[0].geometry.coordinates;
+
+// 	// console.log(coordinates[1],coordinates[0]);
+// }
+
+// function callUserInput(form)
+// {
+//   console.log('hello');
+//   locationName1 = form.locationBox1.value;
+//   locationName2 = form.locationBox2.value;
+//   sendGeocodingRequest(locationName1);
+//   sendGeocodingRequest(locationName2);
+// }
+
+// function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+//   var R = 6371 // Radius of the earth in km
+//   var dLat = deg2rad(lat2-lat1);  // deg2rad below
+//   var dLon = deg2rad(lon2-lon1); 
+//   var a = 
+//     Math.sin(dLat/2) * Math.sin(dLat/2) +
+//     Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+//     Math.sin(dLon/2) * Math.sin(dLon/2)
+//     ; 
+//   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+//   var d = R * c; // Distance in km
+//   return d;
+// }
+
+// function deg2rad(deg) {
+//   return deg * (Math.PI/180)
+// }
+
+</script>
+</body>
+
+</html>

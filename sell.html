@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>TechShare</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-storage.js"></script>"
+	
+	<script src="sell.js" defer> </script>
+</head>
+
+<body>
+ <div id="buy_navbar">
+    <a href=index.html>Home</a>
+    <a href=buy.html>Buy</a>
+    <a href=sell.html>Sell</a>
+    <a href=profile.html>Profile</a>
+  </div>
+  
+  <form name="sellForm" action="" method="GET">
+		<label for="product name">Product name:</label><br>
+    <input type="text" name="productNameBox" value=""><br>
+    <label for="price">Price:</label><br>
+    <input type="number" name="priceBox" value=""><br>
+    <label for="percentDonated">Percent of profit donated:</label><br>
+    <input type="number" name="percentDonatedBox" min="0", max="100", value="">
+    <label>%</label><br>
+    <label for="features">Additional features:</label><br>
+    <input type="text" name="featuresBox" value=""><br>
+    <input type="file" id="myFile" name="imageFile"><br>
+    <input type="reset" name="reset" value="Submit" onclick="addListing(sellForm)">
+	</form>
+</body>
+
+</html>
