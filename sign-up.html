@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>TechShare</title>
+	<link href="style.css" rel="stylesheet" 
+  type="text/css" />
+
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@700&display=swap" rel="stylesheet">
+
+  <!-- bootstrap stuff no to manual designing -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> 
+
+
+  <script src="profile.js"></script> 
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+
+	<script src="script.js" ></script>
+
+<!-- icons -->
+<script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <section id = "nav-bar">
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">About</a>
+          </li>
+      
+         <li class="nav-item">
+            <a class="nav-link" href="buy.html">Buy</a>
+          </li>
+
+ 					<li class="nav-item">
+            <a class="nav-link" href="sell.html">Sell</a>
+          </li>
+
+           <li class="nav-item">
+            <a class="nav-link" href="#">Log In</a>
+          </li>
+        </ul>
+      
+        </form>
+      </div>
+    </nav>
+  </section>
+
+<div class= "container">
+  <div class = "forms-container">
+    <div class = "signin-signup">
+      <!-- signup form -->
+      <form name="signUpForm" action="#" class = "sign-up-form">
+        <h2 class = "title">Sign up</h2>
+
+        <div class = "input-field">
+          <i class = "fas fa-user"></i>
+            <input type="text" NAME="fullNameBox" VALUE="" placeholder = "name..."required>
+        </div>
+
+        <div class = "input-field">
+          <i class = "fas fa-envelope"></i>
+            <input type="text" NAME="emailBox" VALUE="" placeholder = "email..."required>
+        </div>
+
+        <div class = "input-field">
+          <i class = "fas fa-user"></i>
+            <input type="text" NAME="userBox2" VALUE="" placeholder = "username..."required>
+        </div>
+
+        <div class = "input-field">
+          <i class = "fas fa-password"></i>
+            <input type="password" NAME="passwordBox2" VALUE="" placeholder = "password..."required>
+        </div>
+
+        <div class = "input-field">
+          <i class = "fas fa-map"></i>
+            <input type="text" NAME="locationBox" VALUE="" placeholder = "shipping address..."required>
+        </div>
+        
+        <INPUT TYPE="button" NAME="signUpButton" value="Sign up" class = "btn solid" onclick="AddPerson(signUpForm)" >
+          
+      </form>
+      
+    </div>
+  </div>
+
+</body>
+</html>

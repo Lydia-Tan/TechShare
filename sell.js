@@ -6,8 +6,6 @@ function insertAfter(newNode, referenceNode) {
 
 function DisplaySignedInWarning()
 {
-
-
 	if(String(localStorage.getItem('signedIn')) != "null")
 	{
 		return;
@@ -38,13 +36,13 @@ firebase.analytics();
 
 var db = firebase.firestore();
 var storageRef = firebase.storage().ref();
-// Write data example
 
-db.collection("text").doc("text").set({
-  name: "Los Angeles",
-  state: "CA",
-  country: "USA"
-});
+// Write data example
+// db.collection("text").doc("text").set({
+//   name: "Los Angeles",
+//   state: "CA",
+//   country: "USA"
+// });
 
 // // Read data example
 // var docRef = db.collection("text").doc("text");

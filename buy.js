@@ -33,11 +33,31 @@ class Listing {
     this.image_img.setAttribute("src", this.imageSrc);
     this.image_img.setAttribute("style", "width:200px;");
     this.div.appendChild(this.image_img);
+
+    this.buy_button = document.createElement("button");
+    this.buy_button.type = "button";
+    this.buy_button.value = "Buy";
+    this.buy_button.onclick = "buy()";
+    this.div.appendChild(this.buy_button);
+
+    this.share_button = document.createElement("button");
+    this.share_button.type = "button";
+    this.share_button.value = "Share";
+    this.share_button.onclick = "share()";
+    this.div.appendChild(this.share_button);
   }
 
   showFull() {
     
   }
+}
+
+function buy() {
+
+}
+
+function share() {
+  // Add bid to user's bids collection
 }
 
 //var myListing = new Listing("Computer", 300, //"https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg", 50);
@@ -114,7 +134,6 @@ async function runSearch2(form)
   db.collectionGroup('listings').get().then(function(querySnapshot) {
     querySnapshot.forEach(async function(doc) {
       // doc.data() is never undefined for query doc snapshots
-    
 
       if(!doc.data()["name"].toLowerCase().includes(form.searchBox.value.toLowerCase()))
         {return;}
@@ -199,10 +218,11 @@ function createCoords(response)
     // document.getElementById('d').innerHTML = dist;
     coordsArray = [];
   }
+	return dist;
 }
 
 
-async function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
   var R = 6371 // Radius of the earth in km
   var dLat = deg2rad(lat2-lat1);  // deg2rad below
   var dLon = deg2rad(lon2-lon1); 
@@ -218,4 +238,66 @@ async function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
 
 function deg2rad(deg) {
   return deg * (Math.PI/180)
+}
+
+function runSearch3(form)
+{
+		
+  clearSearch(document.getElementById("buy_navbar"));
+	console.log('running search3');
+
+  // get all listings
+  db.collectionGroup('listings').get().then(function(querySnapshot) {
+  	querySnapshot.forEach(function(doc) {
+      
+    	// take off listing if name doesn't match
+      if(!doc.data()["name"].toLowerCase().includes(form.searchBox.value.toLowerCase()))
+        {return};
+
+			var loc1;
+			 db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
+       loc1 = doc.data()["location"];
+			
+			 });
+ 			console.log("loc1", loc1);
+			var coord1 = testAjax(doc.data()["location"]);
+			var loc2;
+			  db.collection("users").doc(localStorage.getItem('signedIn')).get().then(function(doc) {
+      	 loc2 = doc.data()["location"];
+				
+			 });
+			 console.log("loc2",loc2);
+			var coord2 = testAjax(loc2)
+			dist2 = getDistanceFromLatLonInKm(coord1[1][0],coord1[0][0],coord2[1][1],coord2[1][0]);
+			if(dist2 > form.searchDistance.value)
+				return;
+			let queryListing = new Listing(doc.data()["name"], doc.data()["price"],"https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg", doc.data()["percentDonated"], doc.data()["notes"]);
+
+      queryListing.showMin();
+		});
+	});
+				
+		function testAjax(location) {
+    var result="";
+		var request = {
+    query: location
+ 		 };      
+    $.ajax({
+			 // The URL for the geocoding endpoint.
+    	url: "https://api.traveltimeapp.com/v4/geocoding/search",
+  	  // The API endpoint accepts GET requests.
+   	 	type: "get",
+			async: false,
+    	// The authentication headers.
+   	  headers: authHeaders,
+  	  data: request,
+  	  contentType: "application/json; charset=UTF-8",
+  	  // We handle the response here
+    	
+  		success: function(data) 
+			{	result = data.features[0].geometry.coordinates; }
+   })
+   return result;
+}
+
 }
