@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+/* things are getting messy!*/
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
 
 *{
   margin:0;
@@ -21,6 +22,15 @@ Baloo with Montserrat
 /*change colors pls*/
   background:linear-gradient(to right, #bcc59b, #a4b5b9);
   font-family: 'Baloo Da 2', cursive;
+
+  margin: 0;
+ 
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    background-color: #f4e4c4;
   
 }
 
@@ -73,76 +83,6 @@ Baloo with Montserrat
 }
 
 
-/*things with sign in form */
-
-/* .container{
-  position: relative;
-  width: 100%;
-  min-height:100vh;
-  overflow: hidden;
-} */
-/*
-.panels-container {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.panel p {
-  font-size: 0.95rem;
-  padding: 0.7rem 0;
-}
-
-.panel h3 {
-  font-weight: 600;
-  line-height: 1;
-  font-size: 1.5rem;
-}
-
-
-
-.panel {
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-around;
-  text-align: center;
-   z-index: 6; 
-}
-*/
-
- /* .left-panel {
-  pointer-events: all;
-  padding: 3rem 17% 2rem 12%;
-} */
-
-/* .right-panel {
-  /* pointer-events: none; 
-  padding: 3rem 12% 2rem 17%;
-} */
-
-/*
-.panel .content {
-  color: #fff;
-  transition: transform 0.9s ease-in-out;
-  transition-delay: 0.6s;
-}
-
-.panel h3 {
-  font-weight: 600;
-  line-height: 1;
-  font-size: 1.5rem;
-}
-
-.panel p {
-  font-size: 0.95rem;
-  padding: 0.7rem 0;
-}
-
-*/
 .btn.transparent {
   margin: 0;
   background: none;
@@ -160,37 +100,90 @@ Baloo with Montserrat
   transform: translateX(800px);
 }
 
-.container:before{
-  content: '';
-  position: absolute;
-  width: 2000px;
-  height: 2000px;
-  border-radius: 50%;
-  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
-  top: -10%;
-  right: 48%;
-  transform: translateY(-50%);
-  /* transition: 1.8s ease-in-out;
-  border-radius: 50%;
-  z-index: 6; */
+#NameDucky{
+font-family: 'Montserrat', sans-serif;
+
+font-size: 20px;
+  grid-column: 1 / 3;
+
+  
+
 }
 
-/*revisit designing later
-.container2:before{
-  content: '';
-  position: absolute;
-  width: 2000px;
-  height: 2000px;
-  border-radius: 50%;
-  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
-  top: -10%;
-  left: 48%;
-  transform: translateY(-50%);
-  /* transition: 1.8s ease-in-out;
-  border-radius: 50%;
-  z-index: 6; 
+#PriceDucky{
+  grid-column: 2 / 3;
+
 }
-*/
+
+#PercentDucky{
+  grid-column: 1;
+
+}
+
+#ImageDucky{
+width: 100px;
+
+}
+
+#ShareBtnDucky{
+width: 150px;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 49px;
+  cursor: pointer;
+  background-color: #5995fd; 
+  font-weight: 600;
+margin: 10px;
+padding: 10px;
+}
+
+#BuyBtnDucky{
+width: 150px;
+  height: 49px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 49px;
+  cursor: pointer;
+  background-color: #5995fd; 
+  font-weight: 600;
+margin: 10px;
+}
+
+
+ /*
+ .itemsBuy{
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 300px; 
+	 column-count: 3;
+	text-size-adjust: 10000;
+	font-size : 10000;
+   display: grid;
+  grid-gap: 50px; 
+	 grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px; 
+  column-gap: 10px;
+  row-gap: 15px; 
+ 
+}  */
+/* .uniquedivs{
+  grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px; 
+  column-gap: 10px;
+  row-gap: 15px;
+}
+#RemoveableIcons{
+  grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px; 
+  column-gap: 10px;
+  row-gap: 15px;
+} */
+
 
 .forms-container{
   position: absolute;
@@ -217,7 +210,7 @@ form{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 5rem;
+  padding:200px;
   overflow: hidden;
   flex-direction:column;
   grid-column: 1/2;
@@ -236,10 +229,18 @@ form.sign-up-form{
 
 .title{
   font-size: 2.2rem;
+  color: #444;
   font-family: 'Baloo Da 2', cursive;
 
-  color: #444;
   margin-bottom: 10px;
+}
+
+.warningClass{
+  font-size: 1.8rem;
+  color: #4d84e2;
+  margin-bottom: 10px;
+font-family: 'Montserrat', sans-serif;
+
 }
 
 .input-field{
@@ -316,7 +317,7 @@ form.sign-up-form{
 
 
 .title{
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   color: #444;
   margin-bottom: 10px;
 
@@ -345,3 +346,19 @@ h2{
   text-align: center
 } */
 
+
+.blahDuck {
+     margin-top: 100px;
+    margin-bottom: 1rem;  
+    background-color: black;
+}
+/* body {
+    margin: 0;
+ 
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    background-color: #fff;
+} */ 

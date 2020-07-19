@@ -5,13 +5,16 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>TechShare</title>
-	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="buy.css" rel="stylesheet" type="text/css" />
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap" rel="stylesheet">
 
 
   <!-- bootstrap stuff no to manual designing -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> 
-  <script src="profile.js"></script> 
+
+  
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
@@ -28,6 +31,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
   <!-- <script src = 'script.js' defer> </script> -->
+
 	<script src="buy.js" defer> </script>
 </head>
 
@@ -48,7 +52,7 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="about.html">About</a>
           </li>
       
          <li class="nav-item">
@@ -66,10 +70,10 @@
           <li class="nav-item">
             <a class="nav-link" href="sign-up.html">Sign up</a>
           </li>
-
+<!-- 
            <li class="nav-item">
             <a class="nav-link" href="user-profile.html">Profile</a>
-          </li>
+          </li> -->
         </ul>
       
         </form>
@@ -77,20 +81,53 @@
     </nav>
 </section>
 
-  </div>
+<section id = "banner-section" style = "height: 80vh;">
+  <div class = "containerBuy">
+    <!-- <div class = "row">
+      <div class = "cool col-sm-6"> -->
+              
+              <form id="searchForm" action="#" class = "sign-in-form">
+                <p class = 'warningClass' id = 'warning'></p>
+                <h2 class = "title">Search! </h2>
+
+                <div class = "input-field">
+                  <!-- <h3>Search</h3> -->
+                <i class = "fas fa-user"></i>
+                  <input type="text" NAME="searchBox" VALUE="" placeholder = "What are you searching for?">
+              </div>
+
+              <div class = "input-field">
+                <!-- <h3>Distance</h3> -->
+                <i class = "fas fa-lock"></i>
+                  <input type="password" NAME="searchDistance" VALUE="" placeholder = "Search radius (km)">
+              </div>
+
+
+              <INPUT TYPE="button" class = "workbtn" NAME="startSearch" id="searchButton" value="Search"  onclick="runSearch4(form)">
+                
+            </form>
+        
+</section>
   
-		
+
+
+  <!--
+		<div class = "buyBox">
     <form id="searchForm">
       <label for="search">Search:</label><br>
       <INPUT TYPE="text" NAME="searchBox" VALUE=""><br>
       <label for="searchDistance">Distance:</label><br>
       <INPUT TYPE="text" NAME="searchDistance" VALUE=""><br>
+      <label for="chooseRank">Choose how to filter listings:</label><br>
+      <INPUT TYPE="button" id ='distanceRank' Value="Distance" onclick="createDistanceRank(form)"><br>
+      <INPUT TYPE="button" id = "priceRank" Value="Price" onclick="createPriceRank(form)"><br>
+      <INPUT TYPE="button" id = "percentDonatedRank" Value = "Percent Donated" onclick="createPercentDonatedRank(form)"><br>
       <INPUT TYPE="button" NAME="startSearch" id="searchButton" Value="Start searching!" onclick="runSearch4(form)">
     </form>
-
+-->
     <p id="d"></p>
-
-	<script>
+    </div>
+<script>
     
 //     var authHeaders = {
 //       "X-Application-Id": "4f92ecf3",

@@ -34,10 +34,6 @@ class Listing {
     this.image_img.setAttribute("style", "width:200px;");
     this.div.appendChild(this.image_img);
   }
-
-  showFull() {
-    
-  }
 }
 
 var firebaseConfig = {
@@ -103,31 +99,32 @@ docRef.get().then(function(doc) {
 
   db.collection("users").doc(localStorage.getItem("signedIn")).collection("listings").get().then(function(querySnapshot) {
     querySnapshot.forEach(async function(doc) {
-      var imageExists = true;
-      var url = "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg";
+      // var imageExists = true;
+      // var url = "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg";
+      // try {
+      //   await storage.ref().child("listingsImages/" + doc.id).catch(function(error) {
+      //   });
+      // } catch(err) {
+      //   imageExists = await returnFalse();
+      // }
+
+      // console.log("imageExists:" + imageExists);
+      // if(imageExists) {        
+      //   url = await storage.ref().child("listingsImages/" + doc.id).getDownloadURL()
+      // }
+
       try {
-        await storage.ref().child("listingsImages/" + doc.id).catch(function(error) {
-          console.log("catch1");
-        });
-        console.log("trying to find image");
-      } catch(err) {
-        await returnFalse;
-        console.log("catch2");
-        imageExists = await returnFalse();
-        await console.log(imageExists);
+        var url = await storage.ref().child("listingsImages/" + listingsBase2[i].id).getDownloadURL()
       }
+      
+		  catch (error) {
+			  url = "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg";
+		  }
 
-      if(imageExists) {
-        console.log(imageExists);
-        // url = await storage.ref().child("listingsImages/" + doc.id).getDownloadURL()
-      }
-
-      console.log(url);
-
-      /*let queryListing = new Listing(doc.data()["name"], doc.data()["price"], url, doc.data()["percentDonated"], doc.data()["notes"]);
+      let queryListing = new Listing(doc.data()["name"], doc.data()["price"], url, doc.data()["percentDonated"], doc.data()["notes"]);
 
       queryListing.showMin();
-      console.log('listed!');*/
+      console.log('listed!');
     });
   });
 });

@@ -11,13 +11,17 @@ function DisplaySignedInWarning()
 		return;
 	}
 
-	var div2 = document.createElement("div");
-	insertAfter(div2, document.getElementById("buy_navbar"));
+	// var div2 = document.createElement("div");
+	// insertAfter(div2, document.getElementById("nav-bar"));
   
-  var warning_node = document.createTextNode("Warning: Not Signed In");
-  var warning_p = document.createElement("p");
-  warning_p.appendChild(warning_node);
-  div2.appendChild(warning_p);
+  // var warning_node = document.createTextNode("Warning: Not Signed In");
+  // //this.div.setAttribute("class", "signInWarning");
+
+  // var warning_p = document.createElement("p");
+  // warning_p.appendChild(warning_node);
+  // div2.appendChild(warning_p);
+
+  document.getElementById("warning").innerHTML = 'Warning: Not Signed In';
 }
 
 var firebaseConfig = {
@@ -51,12 +55,13 @@ var storageRef = firebase.storage().ref();
 // });
 
 function addListing(form) {
-	if(String(localStorage.getItem('signedIn')) === null)
-		{
-			//Needs a Pretty Message
-			console.log("No Selling Without Signing In");
-			return;
-		}
+	console.log("img",form.imageFile.files[0]);
+	console.log("name", form.productNameBox.value);
+	if(String(localStorage.getItem('signedIn')) === "null" || form.productNameBox.value === "" || form.priceBox.value === "" || form.percentDonatedBox.value === "" || form.imageFile.files[0] == undefined) {
+    //Needs a Pretty Message
+    console.log("You Have been Prevented From Doing Things");
+    return;
+	}
   var id;
   var file = form.imageFile.files[0];
 
@@ -65,7 +70,6 @@ function addListing(form) {
     name: form.productNameBox.value,
     price: form.priceBox.value,
     percentDonated: form.percentDonatedBox.value,
-    notes: form.featuresBox.value,
     seller: localStorage.getItem('signedIn')
   })
   .then(function(docRef) {

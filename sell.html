@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>TechShare</title>
-	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="sell.css" rel="stylesheet" type="text/css" />
 
   <!-- bootstrap stuff -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-storage.js"></script>"
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-storage.js"></script>
 	
 	<script src="sell.js" defer> </script>
 </head>
@@ -43,7 +43,7 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="about.html">About</a>
           </li>
       
          <li class="nav-item">
@@ -62,9 +62,9 @@
             <a class="nav-link" href="sign-up.html">Sign up</a>
           </li>
           
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="user-profile.html">Profile</a>
-          </li>
+          </li> -->
         </ul>
       
         </form>
@@ -72,7 +72,41 @@
     </nav>
   </section>
 
-  
+  <section id = "banner-section" style = "height: 80vh;">
+  <div class = "containerSell">
+    <!-- <div class = "row">
+      <div class = "cool col-sm-6"> -->
+       
+              <form id="searchForm" action="#" class = "sign-in-form">
+                <p class = 'warningClass' id = 'warning'></p>
+                
+                <h2 class = "title">Share your tech! </h2>
+
+                <div class = "input-field">
+                  <!-- <h3>Search</h3> -->
+                <i class = "fas fa-user"></i>
+                  <input type="text" NAME="productNameBox" VALUE="" placeholder = "Product name...">
+              </div>
+
+              <div class = "input-field">
+                <i class = "fas fa-lock"></i>
+                  <input type="number" NAME="priceBox" VALUE="" placeholder = "Sell price...">
+              </div>
+
+               <div class = "input-field">
+                <i class = "fas fa-lock"></i>
+                  <input type="number" NAME="percentDonatedBox" VALUE="" placeholder = "Percent of profits donated...">
+              </div>
+
+              <input type="file" id="myFile" name="imageFile"><br>
+
+
+              <INPUT TYPE="reset" class = "workbtn" NAME="reset" value="Submit"  onclick="addListing(searchForm)">
+                
+            </form>
+        
+ </section> 
+ <!-- 
   <form name="sellForm" action="" method="GET">
 		<label for="product name">Product name:</label><br>
     <input type="text" name="productNameBox" value=""><br>
@@ -85,7 +119,7 @@
     <input type="text" name="featuresBox" value=""><br>
     <input type="file" id="myFile" name="imageFile"><br>
     <input type="reset" name="reset" value="Submit" onclick="addListing(sellForm)">
-	</form>
+	</form> -->
 </body>
 
 </html>

@@ -1,5 +1,17 @@
 /* abandon ship!!! */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+
+*{
+  
+  background-color:#f4e4c4 !important;
+
+}
+
+.navbar{
+  color: #4c5b5d;
+}
 .wrapper{
   margin: 50px auto;
   border-radius: 10px;
@@ -14,12 +26,17 @@
 
 .feature-box h1{
   margin-top: 20%;
-  color: #ffcc00;
+  color: #4c5b5d;
+  font-family: 'Baloo Da 2', cursive;
+
 }
 
 .feature-box p{
   margin: 50px auto;
   color: #555;
+  font-size: 19px;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .feature-box a{
@@ -32,21 +49,21 @@
 }
 
 .btnOne{
-  background:#a6693e !important;
+  background:#f6967c !important;
   color:#fff
 }
 
 .btnTwo{
-  color:#a6693e;
+  color:#f6967c;
 }
 
 .btnOne:hover{
   background: none !important;
-color: black;
+color: #f6967c;
 }
 
 .btnTwo:hover{
-  background:#a6693e !important;
+  background:#f6967c !important;
     color:#fff
 
 }
