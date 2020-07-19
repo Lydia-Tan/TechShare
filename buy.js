@@ -249,56 +249,63 @@ function runSearch3(form)
   // get all listings
   db.collectionGroup('listings').get().then(function(querySnapshot) {
   	querySnapshot.forEach(function(doc) {
-      
+      var coord1
+			var loc1;
     	// take off listing if name doesn't match
       if(!doc.data()["name"].toLowerCase().includes(form.searchBox.value.toLowerCase()))
         {return};
 
-			var loc1;
-			 //db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
-      // loc1 = doc.data()["location"];
-			//
-			// });
-			loc1 = db.collection("users").doc(doc.data()["seller"]).data()["Location"];
- 			console.log("loc1", loc1);
-			var coord1 = testAjax(doc.data()["location"]);
-			var loc2;
-			  db.collection("users").doc(localStorage.getItem('signedIn')).get().then(function(doc) {
+			loc1;
+			 db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
+        loc1 = doc.data()["location"];
+			  console.log("loc1", loc1);
+			  coord1 = testAjax(loc1);
+       }).then(function(doc) {
+        console.log('fulfilled');
+				var loc2;
+        db.collection("users").doc(localStorage.getItem('signedIn')).get();
+       }).then(function(doc) {
       	 loc2 = doc.data()["location"];
-				
-			 });
-			 console.log("loc2",loc2);
-			var coord2 = testAjax(loc2)
+				console.log("loc2",loc2);
+			  var coord2 = testAjax(loc2)
+      })
+      
+      var dist2;
 			dist2 = getDistanceFromLatLonInKm(coord1[1][0],coord1[0][0],coord2[1][1],coord2[1][0]);
+      
 			if(dist2 > form.searchDistance.value)
 				return;
 			let queryListing = new Listing(doc.data()["name"], doc.data()["price"],"https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg", doc.data()["percentDonated"], doc.data()["notes"]);
 
       queryListing.showMin();
-		});
-	});
+			
+			
 				
-		function testAjax(location) {
-    var result="";
-		var request = {
+			 });
+			 
+		});
+};
+				
+function testAjax(location) {
+  var result="";
+  var request = {
     query: location
- 		 };      
-    $.ajax({
-			 // The URL for the geocoding endpoint.
-    	url: "https://api.traveltimeapp.com/v4/geocoding/search",
-  	  // The API endpoint accepts GET requests.
-   	 	type: "get",
-			async: false,
-    	// The authentication headers.
-   	  headers: authHeaders,
-  	  data: request,
-  	  contentType: "application/json; charset=UTF-8",
-  	  // We handle the response here
-    	
-  		success: function(data) 
-			{	result = data.features[0].geometry.coordinates; }
-   })
-   return result;
-}
+  };  
 
+  $.ajax({
+  // The URL for the geocoding endpoint.
+    url: "https://api.traveltimeapp.com/v4/geocoding/search",
+    // The API endpoint accepts GET requests.
+    type: "get",
+    async: false,
+    // The authentication headers.
+    headers: authHeaders,
+    data: request,
+    contentType: "application/json; charset=UTF-8",
+    // We handle the response here
+
+    success: function(data) 
+    {	result = data.features[0].geometry.coordinates; }
+    })
+  return result;
 }

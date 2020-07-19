@@ -69,12 +69,6 @@ function logIn(form) {
   });
 }
 
-function logOut() {
-  localStorage.setItem('signedIn', null);
-  window.location.href="profile.html";
-  console.log(localStorage.getItem('signedIn'));
-}
-
 function insertAfter(newNode, referenceNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }

@@ -8,9 +8,13 @@
 	<link href="style.css" rel="stylesheet" 
   type="text/css" />
 
-
-  
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@700&display=swap" rel="stylesheet">
+
+  <!-- bootstrap stuff no to manual designing -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> 
+  <script src="profile.js"></script> 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
   <!-- bootstrap stuff no to manual designing -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -32,17 +36,57 @@
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
 
-	<script src="script.js" ></script>
+	<script src="user-profile.js"></script>
 </head>
 
 <body>
-  <div>
-    <a href=index.html>Home</a>
-    <a href=buy.html>Buy</a>
-    <a href=sell.html>Sell</a>
-		<a href=profile.html>Log In</a>
-    <a href=sign-up.html>Sign Up</a>
-  </div>
+  
+
+  <!-- navbar -->
+ <section id = "nav-bar">
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">About</a>
+          </li>
+      
+         <li class="nav-item">
+            <a class="nav-link" href="buy.html">Buy</a>
+          </li>
+
+ 					<li class="nav-item">
+            <a class="nav-link" href="sell.html">Sell</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">Log In</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="sign-up.html">Sign up</a>
+          </li>
+
+           <li class="nav-item">
+            <a class="nav-link" href="user-profile.html">Profile</a>
+          </li>
+        </ul>
+      
+        </form>
+      </div>
+    </nav>
+  </section>
+
+
   <form action="profile.html">
     <input type="submit" class = "workbtn" name="logOutButton" value="Log out" onclick="logOut()" >
   </form>
