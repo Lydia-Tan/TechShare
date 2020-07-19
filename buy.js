@@ -12,7 +12,7 @@ class Listing {
   showMin() {
     this.div = document.createElement("UniqueDivs");
 		this.div.id = "RemoveableIcons";
-    insertAfter(this.div, document.getElementById("nav-bar"));
+    insertAfter(this.div, document.getElementById("searchForm"));
 
     this.name_node = document.createTextNode(this.name);
     this.name_p = document.createElement("p");
@@ -37,12 +37,14 @@ class Listing {
     this.buy_button = document.createElement("button");
     this.buy_button.type = "button";
     this.buy_button.value = "Buy";
+    this.buy_button.textContent = "Buy";
     this.buy_button.onclick = "buy()";
     this.div.appendChild(this.buy_button);
 
     this.share_button = document.createElement("button");
     this.share_button.type = "button";
     this.share_button.value = "Share";
+    this.share_button.textContent = "Share";
     this.share_button.onclick = "share()";
     this.div.appendChild(this.share_button);
   }
@@ -60,8 +62,8 @@ function share() {
   // Add bid to user's bids collection
 }
 
-//var myListing = new Listing("Computer", 300, //"https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg", 50);
-//myListing.showMin();
+// var myListing = new Listing("Computer", 300, "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg", 50);
+// myListing.showMin();
 
 DisplaySignedInWarning();
 
@@ -110,7 +112,7 @@ function DisplaySignedInWarning()
 	}
 
 	var div2 = document.createElement("div");
-	insertAfter(div2, document.getElementById("buy_navbar"));
+	insertAfter(div2, document.getElementById("nav-bar"));
   
   var warning_node = document.createTextNode("Warning: Not Signed In");
   var warning_p = document.createElement("p");
@@ -248,7 +250,7 @@ function runSearch3(form)
 
   // get all listings
   db.collectionGroup('listings').get().then(function(querySnapshot) {
-  	querySnapshot.forEach(function(doc) {
+  	querySnapshot.forEach(async function(doc) {
       var coord1
 			var loc1;
     	// take off listing if name doesn't match
@@ -256,11 +258,17 @@ function runSearch3(form)
         {return};
       console.log('start');
         
-      db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
+      await db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
         loc1 = doc.data()["location"];
         console.log("loc1", loc1);
         coord1 = testAjax(loc1);
         console.log('fulfilled');
+
+		/*	doc = await db.collection("users").doc(doc.data()["seller"]).get();
+			loc1 = await doc.data()["location"];
+      console.log("loc1", loc1);
+      coord1 = testAjax(loc1);
+      console.log('fulfilled');*/
 
         var loc2;
         db.collection("users").doc(localStorage.getItem('signedIn')).get().then(function(doc) {
@@ -269,7 +277,11 @@ function runSearch3(form)
           var coord2 = testAjax(loc2);
         })
       })
-
+			 /*doc = await db.collection("users").doc(localStorage.getItem('signedIn')).get();
+			 loc2 = await doc.data()["location"];
+       console.log("loc2",loc2);
+       var coord2 = testAjax(loc2);*/
+					
       console.log('fulfilled2');
       var dist2;
       console.log(coord1[1],coord1[0]);
@@ -287,6 +299,35 @@ function runSearch3(form)
 			 
 	});
 };
+
+async function runSearch4(form)
+{
+	clearSearch(document.getElementById("nav-bar"));
+	console.log('running search4');
+	var listingsBase = await db.collectionGroup('listings').get();
+	var listingsBase2 = listingsBase.docs;
+	var usersBase = await db.collection("users").get();
+	var usersBase2 = usersBase.docs;
+	for (var i = 0; i < listingsBase2.length; i++) {
+    if(!listingsBase2[i].data()["name"].toLowerCase().includes(form.searchBox.value.toLowerCase()))
+			return;
+    //Do something
+
+		sellerName = listingsBase2[i].data()["seller"];
+
+    
+	 	db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
+        loc1 = doc.data()["location"];
+        console.log("loc1", loc1);
+        coord1 = testAjax(loc1);
+        console.log('fulfilled');
+		
+		
+		let queryListing = new Listing(listingsBase2[i].data()["name"], listingsBase2[i].data()["price"],"https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg", listingsBase2[i].data()["percentDonated"], listingsBase2[i].data()["notes"]);
+		 queryListing.showMin();
+}
+	console.log(listingsBase3);
+}
 				
 function testAjax(location) {
   var result="";

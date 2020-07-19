@@ -1,0 +1,57 @@
+/* abandon ship!!! */
+
+.wrapper{
+  margin: 50px auto;
+  border-radius: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* change color later */
+}
+
+.feature-box{
+  padding: 30px;
+}
+
+.feature-box h1{
+  margin-top: 20%;
+  color: #ffcc00;
+}
+
+.feature-box p{
+  margin: 50px auto;
+  color: #555;
+}
+
+.feature-box a{
+  text-decoration: none !important;
+  background:none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-right: 30px;
+  border: 2px solid #555 !important;
+}
+
+.btnOne{
+  background:#a6693e !important;
+  color:#fff
+}
+
+.btnTwo{
+  color:#a6693e;
+}
+
+.btnOne:hover{
+  background: none !important;
+color: black;
+}
+
+.btnTwo:hover{
+  background:#a6693e !important;
+    color:#fff
+
+}
+
+.featurePic{
+  width:100%;
+  padding:40px;
+}
