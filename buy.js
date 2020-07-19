@@ -255,10 +255,11 @@ function runSearch3(form)
         {return};
 
 			var loc1;
-			 db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
-       loc1 = doc.data()["location"];
-			
-			 });
+			 //db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
+      // loc1 = doc.data()["location"];
+			//
+			// });
+			loc1 = db.collection("users").doc(doc.data()["seller"]).data()["Location"];
  			console.log("loc1", loc1);
 			var coord1 = testAjax(doc.data()["location"]);
 			var loc2;
