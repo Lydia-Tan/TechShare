@@ -1,6 +1,7 @@
 /* things are getting messy!*/
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
 
 *{
   margin:0;
@@ -10,17 +11,7 @@
 
 
 body{
-  /* font combos: 3. Montserrat
-  5. Raleway + Roboto Slab
-
-montserrat + lato
-
-Baloo with Montserrat
-
-   */
-
-/*change colors pls*/
-  background:linear-gradient(to right, #bcc59b, #a4b5b9);
+ 
   font-family: 'Baloo Da 2', cursive;
 
   margin: 0;
@@ -30,7 +21,6 @@ Baloo with Montserrat
     line-height: 1.5;
     color: #212529;
     text-align: center;
-    background-color: #f4e4c4;
   
 }
 
@@ -105,9 +95,7 @@ font-family: 'Montserrat', sans-serif;
 
 font-size: 20px;
   grid-column: 1 / 3;
-
-  
-
+padding-top: 30px;
 }
 
 #PriceDucky{
@@ -117,6 +105,7 @@ font-size: 20px;
 
 #PercentDucky{
   grid-column: 1;
+
 
 }
 
@@ -134,10 +123,11 @@ width: 150px;
 
   border-radius: 49px;
   cursor: pointer;
-  background-color: #5995fd; 
+  background-color: #c3d18c; 
   font-weight: 600;
 margin: 10px;
 padding: 10px;
+padding-bottom: 15px;
 }
 
 #BuyBtnDucky{
@@ -150,11 +140,19 @@ width: 150px;
 
   border-radius: 49px;
   cursor: pointer;
-  background-color: #5995fd; 
+  background-color: #c3d18c; 
   font-weight: 600;
 margin: 10px;
 }
 
+#BuyBtnDucky:hover{
+  background-color:#a1ad74;
+}
+
+
+#ShareBtnDucky:hover{
+  background-color:#a1ad74;
+}
 
  /*
  .itemsBuy{
@@ -215,6 +213,9 @@ form{
   flex-direction:column;
   grid-column: 1/2;
   grid-row: 1/2;
+  background-color:#f4e4c4;
+  
+
 }
 
 form.sign-in-form{
@@ -237,7 +238,7 @@ form.sign-up-form{
 
 .warningClass{
   font-size: 1.8rem;
-  color: #4d84e2;
+  color: #4c5b5d  ;
   margin-bottom: 10px;
 font-family: 'Montserrat', sans-serif;
 
@@ -269,7 +270,7 @@ font-family: 'Montserrat', sans-serif;
   line-height: 1;
   font-weight: 600;
   font-size: 1.1rem;
-  color: #333;
+  color: #4c5b5d;
 
 }
 
@@ -285,7 +286,9 @@ font-family: 'Montserrat', sans-serif;
   /* outline: none; */
   border-radius: 49px;
   cursor: pointer;
-  background-color: #5995fd; 
+  color:#fff;
+  background-color: #5a7b7f
+ ; 
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px 0;
@@ -311,14 +314,16 @@ font-family: 'Montserrat', sans-serif;
 
 
 .workbtn:hover{
-  background-color: #4d84e2;
+  background-color: #f6967c;
+  color: #f4e4c4;
 }
 
 
 
 .title{
   font-size: 2.5rem;
-  color: #444;
+color: #4c5b5d;
+;
   margin-bottom: 10px;
 
 }
@@ -347,11 +352,7 @@ h2{
 } */
 
 
-.blahDuck {
-     margin-top: 100px;
-    margin-bottom: 1rem;  
-    background-color: black;
-}
+
 /* body {
     margin: 0;
  

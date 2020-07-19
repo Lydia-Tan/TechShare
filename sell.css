@@ -1,5 +1,6 @@
 /* things are getting messy!*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@700&display=swap');
 
 *{
@@ -20,7 +21,6 @@ Baloo with Montserrat
    */
 
 /*change colors pls*/
-  background:linear-gradient(to right, #bcc59b, #a4b5b9);
   font-family: 'Baloo Da 2', cursive;
 
   margin: 0;
@@ -30,7 +30,6 @@ Baloo with Montserrat
     line-height: 1.5;
     color: #212529;
     text-align: center;
-    background-color: #f4e4c4;
   
 }
 
@@ -139,6 +138,8 @@ form{
   flex-direction:column;
   grid-column: 1/2;
   grid-row: 1/2;
+    background-color:#f4e5c3;
+
 }
 
 .signInWarning{
@@ -163,7 +164,7 @@ form.sign-up-form{
 
 .warningClass{
   font-size: 1.8rem;
-  color: #4d84e2;
+  color: #4c5b5d;
   margin-bottom: 10px;
 font-family: 'Montserrat', sans-serif;
 }
@@ -220,11 +221,15 @@ font-family: 'Montserrat', sans-serif;
   /* outline: none; */
   border-radius: 49px;
   cursor: pointer;
-  background-color: #5995fd; 
+    color:#fff;
+
+  background-color: #5a7b7f; 
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px 0;
   transition: .5s;
+     font-family: 'Montserrat', sans-serif;
+
 
 }
 
@@ -246,7 +251,8 @@ font-family: 'Montserrat', sans-serif;
 
 
 .workbtn:hover{
-  background-color: #4d84e2;
+  background-color: #f6967c;
+  color:#f4e4c4;
 }
 
 
