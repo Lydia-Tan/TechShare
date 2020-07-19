@@ -1,0 +1,77 @@
+/* abandon ship!!! */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+*{
+  
+  background-color:#f4e4c4 !important;
+
+}
+
+.navbar{
+  color: #4c5b5d;
+}
+.wrapper{
+  margin: 50px auto;
+  border-radius: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* change color later */
+}
+
+.feature-box{
+  padding: 30px;
+}
+
+.feature-box h1{
+  margin-top: 10%;
+  color: #4c5b5d;
+  font-family: 'Baloo Da 2', cursive;
+
+}
+
+.feature-box p{
+  margin: 30px auto;
+  color: #555;
+  font-size: 19px;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.feature-box a{
+  text-decoration: none !important;
+  background:none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-right: 30px;
+  border: 2px solid #555 !important;
+}
+
+.btnOne{
+	position: relative;
+	top: 15px;
+  background:#f6967c !important;
+  color:#fff
+}
+
+.btnTwo{
+  color:#f6967c;
+}
+
+.btnOne:hover{
+  background: none !important;
+color: #f6967c;
+}
+
+.btnTwo:hover{
+  background:#f6967c !important;
+    color:#fff
+
+}
+
+.featurePic{
+	margin-top: 2%;
+  width:100%;
+  padding:40px;
+}

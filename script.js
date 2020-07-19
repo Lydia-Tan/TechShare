@@ -57,8 +57,11 @@ async function confirmUniqueUserName(username)
 
 function logIn(form) {
   console.log("Attempting to log in...");
+	
   var docRef = db.collection("users").doc(form.userBox.value);
+
   docRef.get().then(function(doc) {
+		console.log(doc.data);
     if(doc.data()["password"] == form.passwordBox.value) {
       localStorage.setItem('signedIn', form.userBox.value);
       //window.location.href="user-profile.html";
