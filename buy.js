@@ -12,7 +12,7 @@ class Listing {
   showMin() {
     this.div = document.createElement("UniqueDivs");
 		this.div.id = "RemoveableIcons";
-    insertAfter(this.div, document.getElementById("buy_navbar"));
+    insertAfter(this.div, document.getElementById("nav-bar"));
 
     this.name_node = document.createTextNode(this.name);
     this.name_p = document.createElement("p");
@@ -254,24 +254,26 @@ function runSearch3(form)
     	// take off listing if name doesn't match
       if(!doc.data()["name"].toLowerCase().includes(form.searchBox.value.toLowerCase()))
         {return};
-
-			loc1;
-			 db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
+      console.log('start');
+        
+      db.collection("users").doc(doc.data()["seller"]).get().then(function(doc) {
         loc1 = doc.data()["location"];
-			  console.log("loc1", loc1);
-			  coord1 = testAjax(loc1);
-       }).then(function(doc) {
+        console.log("loc1", loc1);
+        coord1 = testAjax(loc1);
         console.log('fulfilled');
-				var loc2;
-        db.collection("users").doc(localStorage.getItem('signedIn')).get();
-       }).then(function(doc) {
-      	 loc2 = doc.data()["location"];
-				console.log("loc2",loc2);
-			  var coord2 = testAjax(loc2)
+
+        var loc2;
+        db.collection("users").doc(localStorage.getItem('signedIn')).get().then(function(doc) {
+          loc2 = doc.data()["location"];
+          console.log("loc2",loc2);
+          var coord2 = testAjax(loc2);
+        })
       })
-      
+
+      console.log('fulfilled2');
       var dist2;
-			dist2 = getDistanceFromLatLonInKm(coord1[1][0],coord1[0][0],coord2[1][1],coord2[1][0]);
+      console.log(coord1[1],coord1[0]);
+			dist2 = getDistanceFromLatLonInKm(coord1[1],coord1[0],coord2[1],coord2[0]);
       
 			if(dist2 > form.searchDistance.value)
 				return;
@@ -281,9 +283,9 @@ function runSearch3(form)
 			
 			
 				
-			 });
-			 
 		});
+			 
+	});
 };
 				
 function testAjax(location) {
